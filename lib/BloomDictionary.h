@@ -15,7 +15,7 @@ private:
     unsigned int hash4(const std::string& str);
 
 public:
-    BloomDictionary(int num_bits);
+    BloomDictionary(unsigned int num_bits);
     ~BloomDictionary();
     void insert(const std::string& str);
     bool contains(const std::string& str);

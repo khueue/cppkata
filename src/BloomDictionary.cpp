@@ -2,7 +2,7 @@
 
 #include "BloomDictionary.h"
 
-BloomDictionary::BloomDictionary(int num_bits)
+BloomDictionary::BloomDictionary(unsigned int num_bits)
 {
     bits = new BitVector(num_bits);
 }
@@ -45,21 +45,17 @@ BloomDictionary::hash4(const std::string& str)
 void
 BloomDictionary::insert(const std::string& str)
 {
-    bits->set(hash1(str) % (1024*1024));
-    bits->set(hash2(str) % (1024*1024));
-    bits->set(hash3(str) % (1024*1024));
-    bits->set(hash4(str) % (1024*1024));
+    bits->set(hash1(str));
+    bits->set(hash2(str));
+    bits->set(hash3(str));
+    bits->set(hash4(str));
 }
 
 bool
 BloomDictionary::contains(const std::string& str)
 {
-    unsigned int h1 = hash1(str) % (1024*1024);
-    unsigned int h2 = hash1(str) % (1024*1024);
-    unsigned int h3 = hash1(str) % (1024*1024);
-    unsigned int h4 = hash1(str) % (1024*1024);
-    return bits->is_set(h1)
-        && bits->is_set(h2)
-        && bits->is_set(h3)
-        && bits->is_set(h4);
+    return bits->is_set(hash1(str))
+        && bits->is_set(hash2(str))
+        && bits->is_set(hash3(str))
+        && bits->is_set(hash4(str));
 }

@@ -5,12 +5,13 @@ class BitVector
 {
 private:
     unsigned char *bytes;
+    unsigned int num_bits;
 
 public:
-    BitVector(int num_bits);
+    BitVector(unsigned int num_bits);
     ~BitVector();
-    bool is_set(int bit);
-    void set(int bit);
+    bool is_set(unsigned int bit);
+    void set(unsigned int bit);
 };
 
 #endif

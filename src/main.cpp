@@ -31,7 +31,7 @@ main(void)
 
     if (!dict.contains("kata"))
     {
-        std::cout << "not found!" << std::endl;
+        std::cout << "Not found!" << std::endl;
     }
 
     return 0;
