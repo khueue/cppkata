@@ -27,19 +27,19 @@ BloomDictionary::hash1(const std::string& str)
 unsigned int
 BloomDictionary::hash2(const std::string& str)
 {
-    return str[0];
+    return !str.empty() ? str[0] : 0;
 }
 
 unsigned int
 BloomDictionary::hash3(const std::string& str)
 {
-    return str[str.length()-1];
+    return !str.empty() ? str[str.length()-1] : 0;
 }
 
 unsigned int
 BloomDictionary::hash4(const std::string& str)
 {
-    return str[(str.length()-1) / 2];
+    return !str.empty() ? str[(str.length()-1) / 2] : 0;
 }
 
 void
