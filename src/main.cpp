@@ -15,8 +15,11 @@ main(int argc, char *argv[])
         }
     }
 
-    const int NUM_BITS = 1024 * 1024;
+    const int NUM_BITS = 100;
     BloomDictionary dict(NUM_BITS);
+    dict.insert("code");
+    dict.insert("kata");
+    dict.insert("bloom");
     dict.print_stats();
 
     return 0;

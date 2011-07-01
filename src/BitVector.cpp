@@ -50,7 +50,7 @@ BitVector::print_stats()
             ++zeros;
         }
     }
-    std::cout << "Ones:  " << ones << std::endl;
-    std::cout << "Zeros: " << zeros << std::endl;
-    std::cout << "Ratio: " << (double)ones/num_bits << std::endl;
+    std::cout << "Ones:   " << ones << std::endl;
+    std::cout << "Zeros:  " << zeros << std::endl;
+    std::cout << "Filled: " << (double)ones/num_bits << std::endl;
 }
