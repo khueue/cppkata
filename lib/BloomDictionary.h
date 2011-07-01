@@ -5,6 +5,10 @@
 
 #include "BitVector.h"
 
+/**
+ * Dictionary implementing a Bloom filter (efficient
+ * set-membership tests, with possibility of false positives).
+ */
 class BloomDictionary
 {
 private:

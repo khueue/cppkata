@@ -13,3 +13,4 @@ Getting there.
    fix Makefile, refactor, ...)
  * June 29 again, 30 min, Makefile and refactor
  * July 1, 30 min, started looking at gtest, added print function
+ * July 1 again, 2 hours, learning gtest and writing tests

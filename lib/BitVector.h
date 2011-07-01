@@ -1,6 +1,9 @@
 #ifndef _BIT_VECTOR_H_
 #define _BIT_VECTOR_H_
 
+/**
+ * Array of bits, used to set and check them individually.
+ */
 class BitVector
 {
 private:

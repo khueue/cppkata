@@ -1,49 +1,23 @@
-#include <iostream>
-#include <fstream>
 #include <gtest.h>
 
 #include "BloomDictionary.h"
 
-const int NUM_BITS = 1024 * 1024;
-
-TEST(FactorialTest, HandlesZeroInput)
-{
-    EXPECT_EQ(1, 1);
-}
-
 int
 main(int argc, char *argv[])
 {
-    BloomDictionary dict(NUM_BITS);
-
-    std::string line;
-    std::ifstream file("/usr/share/dict/words");
-    while (std::getline(file, line))
+    if (argc > 1)
     {
-        dict.insert(line);
-    }
-    file.close();
-
-    std::ifstream file2("/usr/share/dict/words");
-    while (std::getline(file2, line))
-    {
-        if (!dict.contains(line))
+        std::string arg1 = argv[1];
+        if (arg1 == "test")
         {
-            std::cout << dict.contains(line) << std::endl;
+            ::testing::InitGoogleTest(&argc, argv);
+            return RUN_ALL_TESTS();
         }
     }
-    file2.close();
 
-    if (!dict.contains("kata"))
-    {
-        std::cout << "Not found!" << std::endl;
-    }
-
+    const int NUM_BITS = 1024 * 1024;
+    BloomDictionary dict(NUM_BITS);
     dict.print_stats();
-
-    ::testing::InitGoogleTest(&argc, argv);
-    int tests = RUN_ALL_TESTS();
-    (void)tests;
 
     return 0;
 }

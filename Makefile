@@ -23,7 +23,7 @@ BASENAMES = $(basename $(SOURCES))
 # build/file1.o build/file2.o ...
 OBJECTS = $(BASENAMES:$(DIR_SRC)/%=$(DIR_BUILD)/%.o)
 
-all: build run
+all: build test
 
 build: setup trim $(EXE)
 
@@ -41,6 +41,10 @@ trim:
 run:
 	@- echo '--- Running $(EXE) ...'
 	$(EXE)
+
+test:
+	@- echo '--- Testing $(EXE) ...'
+	$(EXE) test
 
 # Build object from source (depends on own def. and ALL .h files (easiest)).
 $(DIR_BUILD)/%.o: $(DIR_SRC)/%.cpp $(HEADERS) Makefile

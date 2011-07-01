@@ -5,8 +5,9 @@
 
 BitVector::BitVector(unsigned int num_bits)
 {
-    bytes = new unsigned char[num_bits/8];
-    memset(bytes, 0, num_bits/8); // Is there a better way in C++?
+    unsigned int num_bytes = (num_bits < 8) ? 1 : num_bits/8;
+    bytes = new unsigned char[num_bytes];
+    memset(bytes, 0, num_bytes); // Is there a better way in C++?
     this->num_bits = num_bits;
 }
 
