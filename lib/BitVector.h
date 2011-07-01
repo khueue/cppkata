@@ -12,6 +12,7 @@ public:
     ~BitVector();
     bool is_set(unsigned int bit);
     void set(unsigned int bit);
+    void print_stats();
 };
 
 #endif

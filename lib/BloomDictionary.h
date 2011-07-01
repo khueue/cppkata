@@ -19,6 +19,7 @@ public:
     ~BloomDictionary();
     void insert(const std::string& str);
     bool contains(const std::string& str);
+    void print_stats();
 };
 
 #endif

@@ -12,6 +12,9 @@ BloomDictionary::~BloomDictionary()
     delete bits;
 }
 
+/*
+ * Algorithm from "The Practice of Programming".
+ */
 unsigned int
 BloomDictionary::hash1(const std::string& str)
 {
@@ -27,19 +30,34 @@ BloomDictionary::hash1(const std::string& str)
 unsigned int
 BloomDictionary::hash2(const std::string& str)
 {
-    return !str.empty() ? str[0] : 0;
+    if (!str.empty())
+    {
+        size_t first = 0;
+        return str[first];
+    }
+    return 0;
 }
 
 unsigned int
 BloomDictionary::hash3(const std::string& str)
 {
-    return !str.empty() ? str[str.length()-1] : 0;
+    if (!str.empty())
+    {
+        size_t last = str.length() - 1;
+        return str[last];
+    }
+    return 0;
 }
 
 unsigned int
 BloomDictionary::hash4(const std::string& str)
 {
-    return !str.empty() ? str[(str.length()-1) / 2] : 0;
+    if (!str.empty())
+    {
+        size_t middle = (str.length() - 1) / 2;
+        return str[middle];
+    }
+    return 0;
 }
 
 void
@@ -58,4 +76,10 @@ BloomDictionary::contains(const std::string& str)
         && bits->is_set(hash2(str))
         && bits->is_set(hash3(str))
         && bits->is_set(hash4(str));
+}
+
+void
+BloomDictionary::print_stats()
+{
+    bits->print_stats();
 }

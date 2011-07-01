@@ -3,12 +3,14 @@ DIR_BUILD = build
 DIR_LIB   = lib
 DIR_SRC   = src
 
-DIR_GTEST = /usr/local/Cellar/gtest/1.5.0/include/gtest
+DIR_GTEST         = /usr/local/Cellar/gtest/1.5.0
+DIR_GTEST_INCLUDE = $(DIR_GTEST)/include/gtest
+DIR_GTEST_LIB     = $(DIR_GTEST)/lib
 
 EXE = $(DIR_BIN)/bloom
 
 CC        = g++
-LINK_LIBS =
+LINK_LIBS = $(DIR_GTEST_LIB)/libgtest.dylib
 WARN      = -Wall -Wextra -ansi -pedantic
 OPTIMIZE  = -O3
 
@@ -43,7 +45,7 @@ run:
 # Build object from source (depends on own def. and ALL .h files (easiest)).
 $(DIR_BUILD)/%.o: $(DIR_SRC)/%.cpp $(HEADERS) Makefile
 	@- echo '--- Compiling $< ...'
-	$(CC) -o $@ -c $< $(WARN) $(OPTIMIZE) -I$(DIR_LIB) -I$(DIR_GTEST)
+	$(CC) -o $@ -c $< $(WARN) $(OPTIMIZE) -I$(DIR_LIB) -I$(DIR_GTEST_INCLUDE)
 
 # Build executable from all objects.
 $(EXE): $(OBJECTS)

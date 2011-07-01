@@ -1,3 +1,4 @@
+#include <iostream>
 #include <cstring>
 
 #include "BitVector.h"
@@ -5,7 +6,7 @@
 BitVector::BitVector(unsigned int num_bits)
 {
     bytes = new unsigned char[num_bits/8];
-    memset(bytes, 0, num_bits/8);
+    memset(bytes, 0, num_bits/8); // Is there a better way in C++?
     this->num_bits = num_bits;
 }
 
@@ -30,4 +31,25 @@ BitVector::set(unsigned int bit)
     int byte   = bit / 8;
     int offset = bit % 8;
     bytes[byte] |= 1 << offset;
+}
+
+void
+BitVector::print_stats()
+{
+    unsigned int ones = 0;
+    unsigned int zeros = 0;
+    for (unsigned int i = 0; i < num_bits; ++i)
+    {
+        if (is_set(i))
+        {
+            ++ones;
+        }
+        else
+        {
+            ++zeros;
+        }
+    }
+    std::cout << "Ones:  " << ones << std::endl;
+    std::cout << "Zeros: " << zeros << std::endl;
+    std::cout << "Ratio: " << (double)ones/num_bits << std::endl;
 }
