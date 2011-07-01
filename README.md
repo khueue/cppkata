@@ -1,6 +1,6 @@
 # Bloom Filter in C++
 
-A simple bloom filter implementation in C++. Tested using Google Test.
+A simple Bloom filter implementation in C++. Tested using Google Test.
 
 ## Usage
 
