@@ -4,7 +4,9 @@ A simple bloom filter implementation in C++. Tested using Google Test.
 
 ## Usage
 
-Getting there.
+Currently requires a POSIX system with `/usr/share/dict/words`.
+Clone the repository and run `make` to compile and run the tests.
+Refer to the tests `src/*Test.cpp` for examples on how to use the filter.
 
 ## Time
 
