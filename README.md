@@ -8,7 +8,9 @@ Dependencies:
 
  * POSIX system with `/usr/share/dict/words`
  * C++ compiler (see Makefile if other than g++)
- * Google Test (see Makefile to set up the proper path)
+ * Google Test (see Makefile vars `DIR_GTEST` and `LINK_LIBS` to set up
+   proper paths for your system (on OS X with Homebrew, simply run
+   `brew install gtest`))
 
 Clone the repository and run `make` to compile and run the tests.
 Refer to the tests `src/*Test.cpp` for examples on how to use the filter.
